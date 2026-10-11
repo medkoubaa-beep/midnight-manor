@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Midnight Manor</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" id="appRoot">
+      <section id="startScreen" class="overlay visible" aria-labelledby="gameTitle">
+        <div class="panel">
+          <h1 id="gameTitle">Midnight Manor</h1>
+          <p>
+            Escape the haunted manor before your sanity collapses. Search each wing,
+            collect clues, power your flashlight, and unlock the final gate.
+          </p>
+          <h2>Controls</h2>
+          <ul>
+            <li><strong>Move:</strong> Arrow keys / WASD or touch controls</li>
+            <li><strong>Interact:</strong> E or Interact button</li>
+            <li><strong>Flashlight:</strong> F or Light button</li>
+          </ul>
+          <button id="startBtn" class="primary">Enter the Manor</button>
+        </div>
+      </section>
+
+      <section class="hud" aria-label="Game status">
+        <p>Sanity: <span id="sanityValue">100</span></p>
+        <p>Battery: <span id="batteryValue">100</span>%</p>
+        <p>Inventory: <span id="inventoryValue">Empty</span></p>
+        <p>Location: <span id="locationValue">Foyer</span></p>
+        <p>Objective: <span id="objectiveValue">Find a way out.</span></p>
+      </section>
+
+      <section class="game-wrap" id="gameWrap">
+        <canvas id="gameCanvas" width="960" height="720" aria-label="Manor map view"></canvas>
+        <p id="announce" class="sr-only" aria-live="polite"></p>
+      </section>
+
+      <section class="controls" aria-label="Touch controls">
+        <div class="dpad">
+          <button data-move="up" aria-label="Move up">▲</button>
+          <button data-move="left" aria-label="Move left">◀</button>
+          <button data-move="down" aria-label="Move down">▼</button>
+          <button data-move="right" aria-label="Move right">▶</button>
+        </div>
+        <div class="actions">
+          <button id="interactBtn">Interact (E)</button>
+          <button id="lightBtn">Toggle Light (F)</button>
+        </div>
+      </section>
+
+      <section id="endScreen" class="overlay" aria-labelledby="endTitle">
+        <div class="panel">
+          <h2 id="endTitle">Outcome</h2>
+          <p id="endText"></p>
+          <button id="restartBtn" class="primary">Restart</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
